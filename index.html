@@ -291,6 +291,21 @@
     .btn-ghost:hover { border-color: var(--purple2); color: var(--purple2); }
 
     .feat-preview { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; cursor: none; background: rgba(15,0,26,.6); backdrop-filter: blur(12px); transition: transform .3s, box-shadow .3s; }
+    .feat-video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px; }
+    .feat-video-overlay {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      background: rgba(6,0,16,.55); transition: opacity .3s; border-radius: 20px;
+    }
+    .feat-preview:hover .feat-video-overlay { opacity: 0; }
+    .feat-play-btn {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .2s;
+    }
+    .feat-preview:hover .feat-play-btn { transform: scale(1.1); }
+    .feat-video-label { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,.7); letter-spacing: .12em; }
     .feat-preview:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(155,45,255,.2); }
     .feat-preview-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .feat-preview-icon { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, rgba(255,45,155,.15), rgba(155,45,255,.15)); border: 1px solid rgba(155,45,255,.3); display: flex; align-items: center; justify-content: center; transition: transform .2s; }
@@ -301,8 +316,9 @@
     /* PROJECTS */
     #projects { background: transparent; }
 
-    .projects-bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .proj-wide { grid-column: span 2; }
+    .projects-bento { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .proj-wide { grid-column: span 3; }
+    .proj-mid  { grid-column: span 2; }
 
     .proj-card { background: rgba(15,0,26,.65); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 20px; padding: 30px; cursor: none; position: relative; overflow: hidden; transition: border-color .3s, transform .3s; display: flex; flex-direction: column; }
     .proj-card:hover { border-color: var(--border2); transform: translateY(-4px); }
@@ -366,6 +382,19 @@
     /* Sections always visible */
     .reveal { opacity: 1; transform: none; }
 
+    /* Smooth fade-in for sections on scroll */
+    @supports (animation-timeline: scroll()) {
+      .section, .bento-card, .proj-card, .tl-item, .featured-grid > * {
+        animation: fadeInUp .6s ease both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 25%;
+      }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     /* PANEL */
     .panel-overlay { position: fixed; inset: 0; z-index: 800; background: rgba(8,0,14,.7); opacity: 0; pointer-events: none; transition: opacity .3s; backdrop-filter: blur(8px); }
     .panel-overlay.open { opacity: 1; pointer-events: auto; }
@@ -417,6 +446,7 @@
       .featured-grid { grid-template-columns: 1fr; gap: 40px; }
       .projects-bento { grid-template-columns: 1fr; }
       .proj-wide { grid-column: span 1; }
+      .proj-mid  { grid-column: span 1; }
       .tl-item { grid-template-columns: 1fr; gap: 8px; }
       .tl-item::after { display: none; }
       .tl-left { text-align: left; }
@@ -438,7 +468,7 @@
   </ul>
   <div class="nav-right">
     <!-- Email -->
-    <a href="/cdn-cgi/l/email-protection#a6cad3de88cbc9c8cfd5c7e6c1cbc7cfca88c5c9cb" class="nav-icon" title="Email">
+    <a href="/cdn-cgi/l/email-protection#49253c3167242627203a28092e24282025672a2624" class="nav-icon" title="Email">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
     </a>
     <!-- LinkedIn -->
@@ -446,7 +476,7 @@
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
     <!-- GitHub -->
-    <a href="https://github.com/yourusername" class="nav-icon" target="_blank" rel="noopener" title="GitHub">
+    <a href="https://github.com/monisalux" class="nav-icon" target="_blank" rel="noopener" title="GitHub">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
     </a>
     <a href="resume.pdf" class="nav-cta" target="_blank">↓ Resume</a>
@@ -529,30 +559,36 @@
       <div class="reveal">
         <h2 class="feat-title">AI-Powered <em>NPC Behavior</em> Modeling</h2>
         <p class="feat-desc">
-          A Unity-based 3D game environment where NPCs are trained with <strong>reinforcement learning</strong> instead of traditional scripted logic. Agents navigate, engage in combat, and react to the player — all through learned behavior rather than hardcoded rules.
+          Final-year capstone — a Unity-based 3D game environment where NPCs are trained with <strong>reinforcement learning</strong> instead of traditional scripted logic. Agents navigate, engage in combat, and react to the player through learned behavior rather than hardcoded rules.
         </p>
         <div class="feat-stack">
           <span class="feat-tag">Unity</span>
           <span class="feat-tag">C#</span>
           <span class="feat-tag">ML-Agents</span>
           <span class="feat-tag">Reinforcement Learning</span>
+          <span class="feat-tag">Python</span>
         </div>
         <div class="btn-row">
-          <a href="#" class="btn btn-ghost">⌥ View Source</a>
+          <a href="https://github.com/monisalux/NG01Capstone" class="btn btn-pink" target="_blank" rel="noopener">⌥ Source Code</a>
         </div>
       </div>
       <div class="reveal">
-        <div class="feat-preview" onclick="openPanel('featured-proj')">
-          <div class="feat-preview-inner">
-            <div class="feat-preview-icon">
+        <a href="https://youtu.be/ADx1dFbM4iY" target="_blank" rel="noopener"
+           style="display:block;position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid var(--border);text-decoration:none;cursor:none;background:var(--bg3);"
+           class="feat-preview">
+          <img src="https://img.youtube.com/vi/ADx1dFbM4iY/maxresdefault.jpg"
+               alt="NPC AI Demo"
+               style="width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .3s;">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+            <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,45,155,.2);border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;transition:transform .2s;">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                <polygon points="5,3 19,11 5,19" fill="url(#pg)"/>
-                <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff2d9b"/><stop offset="100%" stop-color="#9b2dff"/></linearGradient></defs>
+                <polygon points="7,4 18,11 7,18" fill="var(--pink)"/>
               </svg>
             </div>
-            <span class="feat-preview-label">click to see details</span>
+            <span style="font-family:var(--mono);font-size:12px;color:#fff;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.8);">Watch Demo ↗</span>
           </div>
-        </div>
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--purple));"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -564,18 +600,45 @@
     <div class="reveal"><div class="section-pill">Projects</div></div>
     <div class="projects-bento">
 
+      <!-- wide (3) -->
       <div class="proj-card proj-wide pink-top reveal" onclick="openPanel('proj-1')">
         <div class="proj-card-top"></div>
         <div class="proj-header">
-          <span class="proj-type type-pink">AI / Game Dev</span>
+          <span class="proj-type type-pink">Web App · Live</span>
           <span class="proj-arrow">↗</span>
         </div>
-        <div class="proj-name">AI-Powered NPC Behavior Modeling</div>
-        <p class="proj-desc">Unity 3D game with adaptive NPCs trained using reinforcement learning — custom observation spaces, action spaces, and reward functions for navigation, combat, and player interaction.</p>
+        <div class="proj-name">WeStudy Tutoring Platform</div>
+        <p class="proj-desc">Co-owner of a tutoring platform built from 8 years of personal experience. Running a team of 10 tutors, connecting students to the right support.</p>
+        <div class="proj-chips" style="margin-bottom:14px;"><span class="proj-chip">HTML</span><span class="proj-chip">CSS</span><span class="proj-chip">JavaScript</span><span class="proj-chip">GitHub Pages</span></div>
+        <a href="https://monisalux.github.io/" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-family:var(--mono);font-size:13px;padding:4px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:4px;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;width:fit-content;margin-top:4px;">↗ Live Site</a>
+      </div>
+
+      <!-- mid (2) -->
+      <div class="proj-card proj-mid purple-top reveal" onclick="openPanel('proj-2')">
+        <div class="proj-card-top"></div>
+        <div class="proj-header">
+          <span class="proj-type type-purple">AI / Game Dev · Capstone</span>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-name">AI-Powered NPC Behavior</div>
+        <p class="proj-desc">Unity 3D capstone — adaptive NPCs trained using reinforcement learning with custom reward functions for navigation, combat, and player interaction.</p>
         <div class="proj-chips"><span class="proj-chip">Unity</span><span class="proj-chip">C#</span><span class="proj-chip">ML-Agents</span><span class="proj-chip">Reinforcement Learning</span></div>
       </div>
 
-      <div class="proj-card purple-top reveal" onclick="openPanel('proj-2')">
+      <!-- mid (2) -->
+      <div class="proj-card proj-mid pink-top reveal" onclick="openPanel('proj-4')">
+        <div class="proj-card-top"></div>
+        <div class="proj-header">
+          <span class="proj-type type-pink">Web App</span>
+          <span class="proj-arrow">↗</span>
+        </div>
+        <div class="proj-name">Campus Connect</div>
+        <p class="proj-desc">A campus social platform — events, announcements, and collaboration tools to streamline campus interactions.</p>
+        <div class="proj-chips"><span class="proj-chip">Java</span><span class="proj-chip">JavaFX</span><span class="proj-chip">SQL</span><span class="proj-chip">Scene Builder</span></div>
+      </div>
+
+      <!-- wide (3) -->
+      <div class="proj-card proj-wide purple-top reveal" onclick="openPanel('proj-5')">
         <div class="proj-card-top"></div>
         <div class="proj-header">
           <span class="proj-type type-purple">Full-Stack App</span>
@@ -584,29 +647,6 @@
         <div class="proj-name">Moflix Telecom App</div>
         <p class="proj-desc">Led a team of 4 to design and ship a telecom application with real-time SQL data handling and a scalable 100+ component API.</p>
         <div class="proj-chips"><span class="proj-chip">Java</span><span class="proj-chip">JavaFX</span><span class="proj-chip">SQL</span><span class="proj-chip">Scene Builder</span></div>
-      </div>
-
-      <!-- Placeholder cards — add your own projects here -->
-      <div class="proj-card purple-top reveal" onclick="openPanel('proj-3')">
-        <div class="proj-card-top"></div>
-        <div class="proj-header">
-          <span class="proj-type type-purple">Coming Soon</span>
-          <span class="proj-arrow">↗</span>
-        </div>
-        <div class="proj-name">Project Three</div>
-        <p class="proj-desc">Add your next project here — description, stack, and links.</p>
-        <div class="proj-chips"><span class="proj-chip">TBD</span></div>
-      </div>
-
-      <div class="proj-card proj-wide pink-top reveal" onclick="openPanel('proj-4')">
-        <div class="proj-card-top"></div>
-        <div class="proj-header">
-          <span class="proj-type type-pink">Coming Soon</span>
-          <span class="proj-arrow">↗</span>
-        </div>
-        <div class="proj-name">Project Four</div>
-        <p class="proj-desc">Another one to add when you're ready — wide card gives room for a longer description about the scope and challenge.</p>
-        <div class="proj-chips"><span class="proj-chip">TBD</span></div>
       </div>
 
     </div>
@@ -619,7 +659,7 @@
     <span class="contact-sparkle reveal">✦</span>
     <h2 class="contact-h reveal">Say <span class="grad">hello.</span></h2>
     <p class="contact-sub reveal">I'm always happy to connect — about opportunities, projects, or anything else. My inbox is open.</p>
-    <a href="/cdn-cgi/l/email-protection#6d01181543000203041e0c2d0a000c0401430e0200" class="contact-email reveal"><span class="__cf_email__" data-cfemail="335f464b1d5e5c5d5a405273545e525a5f1d505c5e">[email&#160;protected]</span></a>
+    <a href="/cdn-cgi/l/email-protection#b6dac3ce98dbd9d8dfc5d7f6d1dbd7dfda98d5d9db" class="contact-email reveal"><span class="__cf_email__" data-cfemail="771b020f591a18191e041637101a161e1b5914181a">[email&#160;protected]</span></a>
     <div class="contact-links reveal">
       <a href="https://www.linkedin.com/in/monisa-letchumanan" class="social-btn" target="_blank" rel="noopener">↗ LinkedIn</a>
       <a href="resume.pdf" class="social-btn" target="_blank" rel="noopener">↓ Resume</a>
@@ -646,7 +686,22 @@
   <div class="panel-body" id="panel-body"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function toggleVideo() {
+    const v = document.getElementById('npc-video');
+    const overlay = document.querySelector('.feat-video-overlay');
+    const btn = document.getElementById('play-btn');
+    if (v.paused) {
+      v.play();
+      overlay.style.opacity = '0';
+      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22"><rect x="5" y="4" width="4" height="14" fill="#fff"/><rect x="13" y="4" width="4" height="14" fill="#fff"/></svg>';
+    } else {
+      v.pause();
+      overlay.style.opacity = '1';
+      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22"><polygon points="7,4 18,11 7,18" fill="#fff"/></svg>';
+    }
+  }
+
   const nav = document.getElementById('nav');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
 
@@ -654,55 +709,51 @@
 
   const projects = {
     'featured-proj': {
-      type: 'AI / Game Dev',
+      type: 'AI / Game Dev · Capstone',
       name: 'AI-Powered NPC Behavior Modeling',
-      desc: 'Designed a Unity-based 3D game environment featuring adaptive NPCs trained using reinforcement learning, replacing traditional scripted behaviors with <strong>dynamic, context-aware decision-making</strong>. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction. Evaluated AI-driven NPC performance against scripted NPC logic through structured gameplay testing and controlled simulations. Refined agent behavior through iterative training cycles by tuning reward parameters and policies.',
-      stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning'],
-      demo: null, source: '#',
-      screenshots: [
-        { src: null, caption: 'Game environment overview' },
-        { src: null, caption: 'Agent training results' },
-        { src: null, caption: 'NPC behaviour comparison' },
-      ]
+      desc: 'Final-year capstone project — a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>, replacing traditional scripted behaviors with dynamic, context-aware decision-making. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction.',
+      stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning', 'Python'],
+      demo: 'https://youtu.be/ADx1dFbM4iY', source: 'https://github.com/monisalux/NG01Capstone',
+      screenshots: []
     },
     'proj-1': {
-      type: 'AI / Game Dev',
-      name: 'AI-Powered NPC Behavior Modeling',
-      desc: 'Designed a Unity-based 3D game environment featuring adaptive NPCs trained using reinforcement learning, replacing traditional scripted behaviors with <strong>dynamic, context-aware decision-making</strong>. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction.',
-      stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning'],
-      demo: null, source: '#',
-      screenshots: [
-        { src: null, caption: 'Game environment overview' },
-        { src: null, caption: 'Agent training results' },
-      ]
+      type: 'Web App · Live',
+      name: 'WeStudy Tutoring Platform',
+      desc: 'Born from 8 years of personal tutoring experience with students of all ages, WeStudy is a tutoring platform I co-own alongside a <strong>team of 10</strong>. The site connects students with qualified tutors, featuring tutor profiles, subject listings, and a seamless booking experience — built to make quality academic support accessible to everyone.',
+      stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+      demo: 'https://monisalux.github.io/', source: 'https://github.com/monisalux',
+      screenshots: []
     },
     'proj-2': {
+      type: 'AI / Game Dev · Capstone',
+      name: 'AI-Powered NPC Behavior Modeling',
+      desc: 'Final-year capstone project — a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>, replacing traditional scripted behaviors with dynamic, context-aware decision-making. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction. Refined agent behavior through iterative training cycles by tuning reward parameters and policies.',
+      stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning', 'Python'],
+      demo: 'https://youtu.be/ADx1dFbM4iY', source: 'https://github.com/monisalux/NG01Capstone',
+      screenshots: []
+    },
+    'proj-4': {
+      type: 'Web App',
+      name: 'Campus Connect',
+      desc: 'A campus social platform connecting students across university life. Features events, announcements, and collaboration tools built to streamline campus interactions. Designed with role-based access for students, faculty, and admins, with a focus on usability and real-time data.',
+      stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
+      demo: null, source: 'https://github.com/monisalux/campusconnect',
+      screenshots: [
+        { src: null, caption: 'Dashboard view' },
+        { src: null, caption: 'Events & announcements' },
+      ]
+    },
+    'proj-5': {
       type: 'Full-Stack App',
       name: 'Moflix Telecom Application',
       desc: 'Led a team of 4 to design and build a telecom application using <strong>Java, JavaFX, Scene Builder, and SQL</strong>. Developed core Java classes for seamless SQL database connectivity and real-time data handling. Engineered a scalable API with 100+ components — including methods, queries, and views — ensuring modularity and maintainability.',
       stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
-      demo: null, source: '#',
+      demo: null, source: 'https://github.com/monisalux/Moflix',
       screenshots: [
         { src: null, caption: 'Application main screen' },
-        { src: null, caption: 'Database schema / data view' },
+        { src: null, caption: 'Database view' },
       ]
     },
-    'proj-3': {
-      type: 'Coming Soon',
-      name: 'Project Three',
-      desc: 'Add your project details here — what it does, the challenge you solved, and what you learned.',
-      stack: ['TBD'],
-      demo: null, source: null,
-      screenshots: [{ src: null, caption: 'Screenshot coming soon' }]
-    },
-    'proj-4': {
-      type: 'Coming Soon',
-      name: 'Project Four',
-      desc: 'Add your project details here — what it does, the challenge you solved, and what you learned.',
-      stack: ['TBD'],
-      demo: null, source: null,
-      screenshots: [{ src: null, caption: 'Screenshot coming soon' }]
-    }
   };
 
   function buildSS(ss) {
@@ -712,23 +763,35 @@
     return `<div class="ss-frame">${inner}<div class="ss-caption">${ss.caption}</div></div>`;
   }
 
+  function buildVideo(src) {
+    return `<div class="ss-frame" style="aspect-ratio:16/9;">
+      <video style="width:100%;height:100%;object-fit:cover;border-radius:12px;" controls>
+        <source src="${src}" type="video/mp4">
+      </video>
+    </div>`;
+  }
+
   function openPanel(id) {
     const p = projects[id]; if (!p) return;
     document.getElementById('panel-type').textContent = p.type;
     document.getElementById('panel-name').textContent = p.name;
-    const ss   = p.screenshots.map(buildSS).join('');
-    const stack= p.stack.map(s => `<span class="panel-tag">${s}</span>`).join('');
-    const demo = p.demo   ? `<a href="${p.demo}"   class="pl pl-primary" target="_blank" rel="noopener">↗ Live Demo</a>` : '';
-    const src  = p.source ? `<a href="${p.source}" class="pl pl-ghost"   target="_blank" rel="noopener">⌥ Source Code</a>` : '';
+    const mediaHTML = p.video ? buildVideo(p.video) : (p.screenshots||[]).map(buildSS).join('');
+    const stack = p.stack.map(s => `<span class="panel-tag">${s}</span>`).join('');
+    const demo  = p.demo   ? `<a href="${p.demo}"   class="pl pl-primary" target="_blank" rel="noopener">↗ Live Demo</a>` : '';
+    const src   = p.source ? `<a href="${p.source}" class="pl pl-ghost"   target="_blank" rel="noopener">⌥ Source Code</a>` : '';
     document.getElementById('panel-body').innerHTML = `
-      <div class="panel-section-label">Screenshots</div>
-      <div class="panel-screenshots">${ss}</div>
-      <div class="panel-divider"></div>
+      ${mediaHTML ? `<div class="panel-section-label">${p.video ? 'Demo video' : 'Screenshots'}</div>
+      <div class="panel-screenshots">${mediaHTML}</div>
+      <div class="panel-divider"></div>` : ''}
       <div class="panel-section-label">About</div>
       <p class="panel-desc">${p.desc}</p>
       <div class="panel-divider"></div>
       <div class="panel-section-label">Stack</div>
       <div class="panel-stack" style="margin-bottom:0">${stack}</div>
-      ${(demo || src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div class="panel-links">${demo}${src}</div>` : ''}
+      ${(demo||src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div class="panel-links">${demo}${src}</div>` : ''}
     `;
-    document.getElementById('detail-panel').class
+    document.getElementById('detail-panel').classList.add('open');
+    document.getElementById('overlay').classList.add('open');
+    document.body.classList.add('panel-open');
+    document.getElementById('panel-body').scrollTop = 0;
+  }
