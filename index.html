@@ -784,4 +784,10 @@
       <div class="panel-divider"></div>
       <div class="panel-section-label">Stack</div>
       <div class="panel-stack" style="margin-bottom:0">${stack}</div>
-      ${(demo||src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div cl
+      ${(demo||src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div class="panel-links">${demo}${src}</div>` : ''}
+    `;
+    document.getElementById('detail-panel').classList.add('open');
+    document.getElementById('overlay').classList.add('open');
+    document.body.classList.add('panel-open');
+    document.getElementById('panel-body').scrollTop = 0;
+  }
