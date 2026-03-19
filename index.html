@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Monisa Letchumanan — Computer Software Engineering student at TMU. QA Specialist, developer, and co-owner of WeStudy tutoring platform."/>
+  <meta property="og:title" content="Monisa Letchumanan — Portfolio"/>
+  <meta property="og:description" content="Computer Software Engineering student at TMU. QA Specialist, developer, and co-owner of WeStudy tutoring platform."/>
+  <meta property="og:type" content="website"/>
   <title>Monisa Letchumanan</title>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Outfit:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
-:root {
+    :root {
       --bg:      #08000e;
       --bg2:     #0f0019;
       --bg3:     #180026;
@@ -29,7 +33,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; background: #060010; }
+    html { scroll-behavior: smooth; background: #060010; overflow-x: hidden; }
 
     body {
       background: transparent;
@@ -41,15 +45,13 @@
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='5' fill='%23ff2d9b'/%3E%3Ccircle cx='10' cy='10' r='8' fill='none' stroke='%23ff2d9b' stroke-width='1' stroke-opacity='0.5'/%3E%3C/svg%3E") 10 10, auto;
     }
     body.panel-open { overflow: hidden; }
-    a, button { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='7' fill='%23ff2d9b'/%3E%3Ccircle cx='12' cy='12' r='11' fill='none' stroke='%239b2dff' stroke-width='1.5' stroke-opacity='0.7'/%3E%3C/svg%3E") 12 12, pointer; }
-
-
-
+    a, button, [onclick] {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='7' fill='%23ff2d9b'/%3E%3Ccircle cx='12' cy='12' r='11' fill='none' stroke='%239b2dff' stroke-width='1.5' stroke-opacity='0.7'/%3E%3C/svg%3E") 12 12, pointer;
+    }
 
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
-
 
     /* NAV */
     nav {
@@ -59,148 +61,78 @@
       transition: background .4s, border-color .4s;
       border-bottom: 1px solid transparent;
     }
-    nav.scrolled {
-      background: rgba(8,0,14,.9);
-      border-color: var(--border);
-      backdrop-filter: blur(20px);
-    }
+    nav.scrolled { background: rgba(8,0,14,.9); border-color: var(--border); backdrop-filter: blur(20px); }
     .nav-logo {
       font-family: var(--display); font-size: 16px; font-weight: 700;
       text-decoration: none; letter-spacing: .04em;
       width: 52px; height: 52px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       border: 1.5px solid transparent;
-      background:
-        linear-gradient(var(--bg), var(--bg)) padding-box,
-        linear-gradient(135deg, #ff2d9b, #9b2dff) border-box;
+      background: linear-gradient(var(--bg), var(--bg)) padding-box, linear-gradient(135deg, #ff2d9b, #9b2dff) border-box;
       box-shadow: 0 0 14px rgba(255,45,155,.35), 0 0 28px rgba(155,45,255,.2);
       transition: box-shadow .2s;
     }
-    .nav-logo span {
-      background: linear-gradient(135deg, #ff79c6, #9b2dff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .nav-logo:hover {
-      box-shadow: 0 0 20px rgba(255,45,155,.55), 0 0 40px rgba(155,45,255,.3);
-    }
-    .nav-links {
-      position: absolute; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 36px; list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--mono); font-size: 18px; color: var(--muted);
-      text-decoration: none; letter-spacing: .12em; text-transform: uppercase;
-      transition: color .2s;
-    }
+    .nav-logo span { background: linear-gradient(135deg, #ff79c6, #9b2dff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-logo:hover { box-shadow: 0 0 20px rgba(255,45,155,.55), 0 0 40px rgba(155,45,255,.3); }
+    .nav-links { position: absolute; left: 50%; transform: translateX(-50%); display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 18px; color: var(--muted); text-decoration: none; letter-spacing: .12em; text-transform: uppercase; transition: color .2s; }
     .nav-links a:hover { color: var(--pink2); }
-    .nav-cta {
-      font-family: var(--mono); font-size: 16px; letter-spacing: .1em;
-      text-transform: uppercase; text-decoration: none;
-      padding: 14px 32px; border-radius: 100px;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      color: #fff; font-weight: 500; transition: opacity .2s, transform .2s;
-    }
+    .nav-cta { font-family: var(--mono); font-size: 16px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: 14px 32px; border-radius: 100px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; font-weight: 500; transition: opacity .2s, transform .2s; }
     .nav-cta:hover { opacity: .85; transform: translateY(-1px); }
-
     .nav-right { display: flex; align-items: center; gap: 12px; }
-    .nav-icon {
-      width: 52px; height: 52px; border-radius: 50%;
-      border: 1px solid var(--border);
-      background: transparent;
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; color: var(--muted);
-      transition: all .2s;
-    }
+    .nav-icon { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--border); background: transparent; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--muted); transition: all .2s; }
     .nav-icon:hover { border-color: var(--pink); color: var(--pink); background: rgba(255,45,155,.08); transform: translateY(-2px); }
     .nav-icon svg { width: 26px; height: 26px; fill: currentColor; }
 
-    /* LAVA LAMP — pure CSS */
-    .lava-blob {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: 0;
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: transparent; border: none; padding: 4px; z-index: 600; }
+    .hamburger span { display: block; height: 2px; border-radius: 2px; background: var(--text); transition: all .3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 550;
+      background: rgba(6,0,16,.97); backdrop-filter: blur(20px);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
     }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a { font-family: var(--display); font-size: 26px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: .04em; transition: color .2s; }
+    .mobile-menu a:hover { color: var(--pink); }
+    .mob-icons { display: flex; gap: 14px; margin-top: 8px; }
+    .mob-icons a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; }
+    .mob-icons svg { width: 18px; height: 18px; fill: currentColor; }
+    .mob-cta { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: 12px 28px; border-radius: 100px; background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; font-weight: 500; }
+
+    /* LAVA LAMP */
+    .lava-blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
     .lava-1 { width: 700px; height: 700px; background: rgba(155,45,255,.18); top: -100px; left: -150px; animation: lava-a 5s ease-in-out infinite alternate; }
     .lava-2 { width: 600px; height: 600px; background: rgba(255,45,155,.15); top: 10%; right: -100px; animation: lava-b 6s ease-in-out infinite alternate; }
     .lava-3 { width: 500px; height: 500px; background: rgba(192,132,252,.14); bottom: 20%; left: 20%; animation: lava-c 7s ease-in-out infinite alternate; }
     .lava-4 { width: 450px; height: 450px; background: rgba(255,45,155,.12); bottom: -50px; right: 15%; animation: lava-d 5s ease-in-out infinite alternate; }
     .lava-5 { width: 400px; height: 400px; background: rgba(155,45,255,.14); top: 50%; left: 55%; animation: lava-e 6s ease-in-out infinite alternate; }
-    @keyframes lava-a {
-      0%   { transform: translate(0,0) scale(1) rotate(0deg); }
-      33%  { transform: translate(280px,320px) scale(1.2) rotate(60deg); }
-      66%  { transform: translate(120px,500px) scale(.9) rotate(120deg); }
-      100% { transform: translate(380px,180px) scale(1.3) rotate(180deg); }
-    }
-    @keyframes lava-b {
-      0%   { transform: translate(0,0) scale(1) rotate(0deg); }
-      40%  { transform: translate(-320px,350px) scale(1.25) rotate(-80deg); }
-      100% { transform: translate(-180px,600px) scale(.85) rotate(-160deg); }
-    }
-    @keyframes lava-c {
-      0%   { transform: translate(0,0) scale(1) rotate(0deg); }
-      50%  { transform: translate(300px,-280px) scale(1.35) rotate(90deg); }
-      100% { transform: translate(-220px,350px) scale(.9) rotate(180deg); }
-    }
-    @keyframes lava-d {
-      0%   { transform: translate(0,0) scale(1) rotate(0deg); }
-      35%  { transform: translate(-350px,-300px) scale(1.2) rotate(-70deg); }
-      100% { transform: translate(200px,-450px) scale(1.15) rotate(-140deg); }
-    }
-    @keyframes lava-e {
-      0%   { transform: translate(0,0) scale(1) rotate(0deg); }
-      45%  { transform: translate(-300px,220px) scale(1.3) rotate(100deg); }
-      100% { transform: translate(250px,-320px) scale(.8) rotate(200deg); }
-    }
-    body > *:not(.lava-blob) { position: relative; z-index: 1; }
+    @keyframes lava-a { 0%{transform:translate(0,0) scale(1) rotate(0deg)} 33%{transform:translate(280px,320px) scale(1.2) rotate(60deg)} 66%{transform:translate(120px,500px) scale(.9) rotate(120deg)} 100%{transform:translate(380px,180px) scale(1.3) rotate(180deg)} }
+    @keyframes lava-b { 0%{transform:translate(0,0) scale(1) rotate(0deg)} 40%{transform:translate(-320px,350px) scale(1.25) rotate(-80deg)} 100%{transform:translate(-180px,600px) scale(.85) rotate(-160deg)} }
+    @keyframes lava-c { 0%{transform:translate(0,0) scale(1) rotate(0deg)} 50%{transform:translate(300px,-280px) scale(1.35) rotate(90deg)} 100%{transform:translate(-220px,350px) scale(.9) rotate(180deg)} }
+    @keyframes lava-d { 0%{transform:translate(0,0) scale(1) rotate(0deg)} 35%{transform:translate(-350px,-300px) scale(1.2) rotate(-70deg)} 100%{transform:translate(200px,-450px) scale(1.15) rotate(-140deg)} }
+    @keyframes lava-e { 0%{transform:translate(0,0) scale(1) rotate(0deg)} 45%{transform:translate(-300px,220px) scale(1.3) rotate(100deg)} 100%{transform:translate(250px,-320px) scale(.8) rotate(200deg)} }
+    body > *:not(.lava-blob):not(.mobile-menu) { position: relative; z-index: 1; }
 
     /* HERO */
     #hero {
       min-height: 100vh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      text-align: center;
-      position: relative; overflow: hidden;
-      padding: 68px 40px 120px;
+      text-align: center; position: relative;
+      padding: 90px 40px 160px;
     }
-
     .hero-inner { position: relative; z-index: 1; }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: var(--mono); font-size: 11px;
-      color: var(--purple2); letter-spacing: .18em; text-transform: uppercase;
-      margin-bottom: 36px;
-      opacity: 0; animation: fadeUp .8s .2s ease forwards;
-    }
-    .hero-badge span { color: var(--pink2); }
-
-    .hero-name {
-      font-family: 'Orbitron', sans-serif; font-weight: 700;
-      font-size: clamp(32px, 6.5vw, 84px);
-      line-height: 1.15; letter-spacing: .04em;
-      margin-bottom: 32px;
-      opacity: 0; animation: fadeUp .9s .4s ease forwards;
-    }
-    .hero-name .line-solid {
-      display: block;
-      color: var(--text);
-    }
-    .hero-name .line-outline {
-      display: block;
-      background: linear-gradient(135deg, var(--pink2), var(--purple2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-
-    .hero-scroll {
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%);
-      font-family: var(--mono); font-size: 13px; color: #fff;
-      letter-spacing: .22em; text-transform: uppercase;
-      opacity: 0; animation: fadeUp .7s 1.2s ease forwards;
-    }
+    .hero-name { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(32px, 6.5vw, 84px); line-height: 1.15; letter-spacing: .04em; margin-bottom: 32px; }
+    .hero-name .line-solid { display: block; color: var(--text); }
+    .hero-name .line-outline { display: block; background: linear-gradient(135deg, var(--pink2), var(--purple2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-scroll { display: flex; flex-direction: column; align-items: center; gap: 8px; position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 13px; color: #fff; letter-spacing: .22em; text-transform: uppercase; }
     .scroll-line { width: 1px; height: 52px; background: linear-gradient(to bottom, var(--pink), transparent); animation: scrollPulse 2s ease-in-out infinite; }
     @keyframes scrollPulse { 0%,100%{opacity:.3} 50%{opacity:1} }
     @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
@@ -208,61 +140,21 @@
     /* SECTION */
     .wrap { max-width: 1160px; margin: 0 auto; padding: 0 52px; }
     .section { padding: 100px 0; }
+    .section-pill { font-family: 'Orbitron', sans-serif; font-size: clamp(22px, 3.2vw, 34px); font-weight: 700; letter-spacing: .02em; line-height: 1; color: var(--pink); display: inline-block; margin-bottom: 48px; }
+    .reveal { opacity: 1; transform: none; }
 
-    .section-pill {
-      font-family: 'Orbitron', sans-serif; font-size: clamp(22px, 3.2vw, 34px);
-      font-weight: 700; letter-spacing: .02em; line-height: 1;
-      color: var(--pink);
-      display: inline-block; margin-bottom: 48px;
-    }
-
-    /* ABOUT — BENTO */
+    /* ABOUT */
     #about { background: transparent; }
-
-    .bento {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-
-    .bento-card {
-      background: rgba(15,0,26,.65); border: 1px solid var(--border);
-      border-radius: 20px; padding: 28px;
-      transition: border-color .3s, transform .3s;
-      position: relative; overflow: hidden;
-      backdrop-filter: blur(12px);
-    }
-    .bento-card:hover { border-color: var(--border2); transform: translateY(-3px); }
-    .bento-card::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,45,155,.04), rgba(155,45,255,.04));
-      opacity: 0; transition: opacity .3s; border-radius: inherit;
-    }
-    .bento-card:hover::before { opacity: 1; }
-
-    .bento-bio    { grid-column: span 12; }
+    .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .bento-bio { grid-column: span 12; }
     .bento-skills { grid-column: span 12; }
-
-    .bento-label {
-      font-family: 'Orbitron', sans-serif; font-size: clamp(18px, 2.4vw, 24px);
-      font-weight: 700; color: var(--pink);
-      letter-spacing: .02em; margin-bottom: 24px; line-height: 1;
-    }
-
+    .bento-card { background: rgba(15,0,26,.65); border: 1px solid var(--border); border-radius: 20px; padding: 28px; transition: border-color .3s, transform .3s; position: relative; overflow: hidden; backdrop-filter: blur(12px); }
+    .bento-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+    .bento-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,45,155,.04), rgba(155,45,255,.04)); opacity: 0; transition: opacity .3s; border-radius: inherit; }
+    .bento-card:hover::before { opacity: 1; }
+    .bento-label { font-family: 'Orbitron', sans-serif; font-size: clamp(18px, 2.4vw, 24px); font-weight: 700; color: var(--pink); letter-spacing: .02em; margin-bottom: 24px; line-height: 1; }
     .bio-text p { color: #fff; font-size: 19px; line-height: 1.85; margin-bottom: 16px; font-weight: 400; text-shadow: 0 0 20px rgba(255,255,255,.25); }
     .bio-text p strong { color: var(--text); font-weight: 500; }
-
-    .snap-row { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-    .snap-row:last-child { border-bottom: none; }
-    .snap-key { font-family: var(--mono); font-size: 11px; color: var(--muted); }
-    .snap-val { color: var(--text); font-weight: 500; }
-
-    .status-dot-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--pink2); animation: pulse-pink 2s ease-in-out infinite; }
-    @keyframes pulse-pink { 0%,100%{box-shadow:0 0 0 0 rgba(255,121,198,.5)} 50%{box-shadow:0 0 0 7px rgba(255,121,198,0)} }
-    .status-text { font-size: 13px; color: var(--muted); font-weight: 300; }
-    .status-text strong { color: var(--text); }
-
     .skill-groups { display: flex; flex-wrap: wrap; gap: 32px; }
     .skill-group { flex: 1; min-width: 180px; }
     .skill-group-label { font-family: var(--mono); font-size: 13px; color: var(--purple2); letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px; }
@@ -273,98 +165,47 @@
     /* FEATURED */
     #featured { position: relative; overflow: hidden; background: transparent; }
     #featured::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--pink), var(--purple), transparent); }
-
     .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-
-    .feat-num { font-family: var(--display); font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(135deg, rgba(255,45,155,.15), rgba(155,45,255,.1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: -20px; }
     .feat-title { font-family: var(--display); font-size: clamp(18px, 2.5vw, 26px); font-weight: 700; line-height: 1.2; letter-spacing: .02em; margin-bottom: 18px; }
     .feat-title em { font-style: normal; color: var(--pink); }
     .feat-desc { font-size: 19px; color: #fff; line-height: 1.85; margin-bottom: 28px; font-weight: 400; text-shadow: 0 0 20px rgba(255,255,255,.25); }
-    .feat-desc strong { color: var(--text); font-weight: 500; }
     .feat-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
     .feat-tag { font-family: var(--mono); font-size: 10px; color: var(--purple2); border: 1px solid rgba(155,45,255,.3); background: rgba(155,45,255,.07); padding: 5px 13px; border-radius: 100px; letter-spacing: .08em; }
     .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 12px 24px; border-radius: 100px; text-decoration: none; transition: all .25s; display: inline-flex; align-items: center; gap: 8px; }
     .btn-pink { background: linear-gradient(135deg, var(--pink), var(--purple)); color: #fff; font-weight: 500; }
     .btn-pink:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,45,155,.35); }
-    .btn-ghost { color: var(--muted); border: 1px solid var(--border); background: transparent; }
-    .btn-ghost:hover { border-color: var(--purple2); color: var(--purple2); }
-
-    .feat-preview { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='7' fill='%23ff2d9b'/%3E%3Ccircle cx='12' cy='12' r='11' fill='none' stroke='%239b2dff' stroke-width='1.5' stroke-opacity='0.7'/%3E%3C/svg%3E") 12 12, pointer; background: rgba(15,0,26,.6); backdrop-filter: blur(12px); transition: transform .3s, box-shadow .3s; }
-    .feat-video { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 20px; }
-    .feat-video-overlay {
-      position: absolute; inset: 0; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 10px;
-      background: rgba(6,0,16,.55); transition: opacity .3s; border-radius: 20px;
-    }
-    .feat-preview:hover .feat-video-overlay { opacity: 0; }
-    .feat-play-btn {
-      width: 60px; height: 60px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      display: flex; align-items: center; justify-content: center;
-      transition: transform .2s;
-    }
-    .feat-preview:hover .feat-play-btn { transform: scale(1.1); }
-    .feat-video-label { font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,.7); letter-spacing: .12em; }
+    .feat-preview { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; background: rgba(15,0,26,.6); backdrop-filter: blur(12px); transition: transform .3s, box-shadow .3s; }
     .feat-preview:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(155,45,255,.2); }
-    .feat-preview-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-    .feat-preview-icon { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, rgba(255,45,155,.15), rgba(155,45,255,.15)); border: 1px solid rgba(155,45,255,.3); display: flex; align-items: center; justify-content: center; transition: transform .2s; }
-    .feat-preview:hover .feat-preview-icon { transform: scale(1.1); }
-    .feat-preview-label { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .1em; }
     .feat-preview::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--pink), var(--purple)); }
 
     /* PROJECTS */
     #projects { background: transparent; }
-
     .projects-bento { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
     .proj-wide { grid-column: span 3; }
     .proj-mid  { grid-column: span 2; }
-
-    .proj-card { background: rgba(15,0,26,.65); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 20px; padding: 30px; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='7' fill='%23ff2d9b'/%3E%3Ccircle cx='12' cy='12' r='11' fill='none' stroke='%239b2dff' stroke-width='1.5' stroke-opacity='0.7'/%3E%3C/svg%3E") 12 12, pointer; position: relative; overflow: hidden; transition: border-color .3s, transform .3s; display: flex; flex-direction: column; }
+    .proj-card { background: rgba(15,0,26,.65); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; overflow: hidden; transition: border-color .3s, transform .3s; display: flex; flex-direction: column; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='7' fill='%23ff2d9b'/%3E%3Ccircle cx='12' cy='12' r='11' fill='none' stroke='%239b2dff' stroke-width='1.5' stroke-opacity='0.7'/%3E%3C/svg%3E") 12 12, pointer; }
     .proj-card:hover { border-color: var(--border2); transform: translateY(-4px); }
     .proj-card-top { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 20px 20px 0 0; opacity: 0; transition: opacity .3s; }
     .proj-card:hover .proj-card-top { opacity: 1; }
     .pink-top   .proj-card-top { background: linear-gradient(90deg, var(--pink), var(--purple)); }
     .purple-top .proj-card-top { background: linear-gradient(90deg, var(--purple), var(--pink)); }
-
     .proj-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
     .proj-type { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; display: inline-block; }
     .type-pink   { color: var(--pink2);   background: rgba(255,121,198,.1); border: 1px solid rgba(255,121,198,.2); }
     .type-purple { color: var(--purple2); background: rgba(192,132,252,.1); border: 1px solid rgba(192,132,252,.2); }
-
     .proj-arrow { font-size: 16px; color: var(--border); transition: color .2s, transform .2s; }
     .proj-card:hover .proj-arrow { color: var(--pink); transform: translate(2px,-2px); }
-
     .proj-name { font-family: var(--display); font-size: clamp(16px, 2vw, 22px); font-weight: 700; margin-bottom: 14px; letter-spacing: .02em; line-height: 1.2; color: #fff; text-shadow: 0 0 24px rgba(255,255,255,.2); }
     .proj-desc { font-size: 17px; color: #fff; line-height: 1.7; margin-bottom: 20px; flex: 1; font-weight: 400; text-shadow: 0 0 20px rgba(255,255,255,.25); }
     .proj-chips { display: flex; flex-wrap: wrap; gap: 6px; }
     .proj-chip { font-family: var(--mono); font-size: 13px; color: var(--muted); background: var(--bg4); border: 1px solid var(--border); padding: 4px 12px; border-radius: 100px; letter-spacing: .06em; }
 
-    /* WORK */
-    .timeline { position: relative; }
-    .tl-item { display: grid; grid-template-columns: 200px 1fr; gap: 40px; margin-bottom: 56px; position: relative; }
-    .tl-item:last-child { margin-bottom: 0; }
-    .tl-item::after { content: ''; position: absolute; left: 199px; top: 0; bottom: -56px; width: 1px; background: var(--border); }
-    .tl-item:last-child::after { display: none; }
-    .tl-left { text-align: right; padding-top: 4px; }
-    .tl-period { font-family: var(--mono); font-size: 11px; background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: .06em; display: block; margin-bottom: 6px; }
-    .tl-co { font-size: 12px; color: var(--muted); font-weight: 300; }
-    .tl-co strong { color: var(--purple2); font-weight: 500; }
-    .tl-right { padding-left: 40px; position: relative; }
-    .tl-right::before { content: '✦'; position: absolute; left: -8px; top: 3px; font-size: 10px; background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .tl-role { font-family: var(--display); font-size: 14px; font-weight: 700; margin-bottom: 14px; letter-spacing: .02em; line-height: 1.4; }
-    .tl-bullets { list-style: none; }
-    .tl-bullets li { font-size: 14px; color: var(--muted); padding: 5px 0 5px 16px; position: relative; line-height: 1.7; font-weight: 300; }
-    .tl-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--pink); font-size: 12px; top: 7px; }
-    .tl-bullets li strong { color: var(--text); font-weight: 500; }
-
     /* CONTACT */
     #contact { text-align: center; position: relative; overflow: hidden; background: transparent; }
     #contact::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--purple), var(--pink), transparent); }
-
     .contact-sparkle { font-size: 40px; display: block; margin-bottom: 24px; animation: spin 8s linear infinite; background: linear-gradient(135deg, var(--pink), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     @keyframes spin { to { transform: rotate(360deg); } }
-
     .contact-h { font-family: var(--display); font-size: clamp(24px, 4vw, 48px); font-weight: 700; line-height: 1.15; letter-spacing: .02em; margin-bottom: 18px; }
     .contact-h .grad { background: linear-gradient(135deg, var(--pink2), var(--purple2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .contact-sub { font-size: 18px; color: var(--muted); max-width: 400px; margin: 0 auto 36px; font-weight: 300; line-height: 1.8; }
@@ -374,58 +215,24 @@
     .social-btn { font-family: var(--mono); font-size: 11px; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 10px 22px; border-radius: 100px; letter-spacing: .1em; text-transform: uppercase; transition: all .2s; display: flex; align-items: center; gap: 8px; }
     .social-btn:hover { border-color: var(--pink); color: var(--pink); background: rgba(255,45,155,.06); }
 
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 4px 52px; display: flex; justify-content: space-between; align-items: center; background: transparent; }
-    .foot { font-family: var(--mono); font-size: 10px; color: var(--muted); opacity: .35; }
-    .foot a { color: var(--pink2); text-decoration: none; }
-
-    /* Sections always visible */
-    .reveal { opacity: 1; transform: none; }
-
-    /* Smooth fade-in for sections on scroll */
-    @supports (animation-timeline: scroll()) {
-      .section, .bento-card, .proj-card, .tl-item, .featured-grid > * {
-        animation: fadeInUp .6s ease both;
-        animation-timeline: view();
-        animation-range: entry 0% entry 25%;
-      }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
     /* PANEL */
     .panel-overlay { position: fixed; inset: 0; z-index: 800; background: rgba(8,0,14,.7); opacity: 0; pointer-events: none; transition: opacity .3s; backdrop-filter: blur(8px); }
     .panel-overlay.open { opacity: 1; pointer-events: auto; }
-
     .detail-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 900; width: 500px; background: #0f0019; border-left: 1px solid var(--border2); display: flex; flex-direction: column; transform: translateX(110%); transition: transform .38s cubic-bezier(.4,0,.2,1); visibility: hidden; }
     .detail-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--pink), var(--purple)); }
     .detail-panel.open { transform: translateX(0); visibility: visible; }
-
     .panel-head { padding: 24px 28px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
     .panel-type-badge { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; color: var(--pink); background: rgba(255,45,155,.1); border: 1px solid rgba(255,45,155,.2); margin-bottom: 6px; display: inline-block; }
     .panel-name { font-family: var(--display); font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
     .panel-close { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all .2s; cursor: pointer; }
     .panel-close:hover { border-color: var(--pink); color: var(--pink); background: rgba(255,45,155,.08); }
-
     .panel-body { flex: 1; overflow-y: auto; padding: 28px; }
     .panel-body::-webkit-scrollbar { width: 3px; }
     .panel-body::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
-
     .panel-section-label { font-family: var(--mono); font-size: 10px; color: var(--purple2); letter-spacing: .18em; text-transform: uppercase; margin-bottom: 14px; }
     .panel-divider { height: 1px; background: var(--border); margin: 24px 0; }
     .panel-desc { font-size: 16px; color: var(--muted); line-height: 1.8; font-weight: 300; }
     .panel-desc strong { color: var(--text); font-weight: 500; }
-
-    .panel-screenshots { display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px; }
-    .ss-frame { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; position: relative; background: var(--bg3); display: flex; align-items: center; justify-content: center; }
-    .ss-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .ss-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; background: linear-gradient(135deg, var(--bg3), var(--bg4)); }
-    .ss-placeholder-icon { font-size: 24px; opacity: .3; }
-    .ss-placeholder-text { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .08em; }
-    .ss-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 7px 14px; background: rgba(8,0,14,.85); font-family: var(--mono); font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); }
-
     .panel-stack { display: flex; flex-wrap: wrap; gap: 7px; }
     .panel-tag { font-family: var(--mono); font-size: 10px; color: var(--muted); border: 1px solid var(--border); background: var(--bg); padding: 4px 12px; border-radius: 100px; letter-spacing: .06em; }
     .panel-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
@@ -434,25 +241,52 @@
     .pl-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,45,155,.3); }
     .pl-ghost { color: var(--muted); border: 1px solid var(--border); background: transparent; }
     .pl-ghost:hover { border-color: var(--purple2); color: var(--purple2); }
+    .panel-screenshots { display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px; }
+    .ss-frame { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; position: relative; background: var(--bg3); display: flex; align-items: center; justify-content: center; }
+    .ss-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; }
+    .ss-placeholder-icon { font-size: 24px; opacity: .3; }
+    .ss-placeholder-text { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .08em; }
+    .ss-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 7px 14px; background: rgba(8,0,14,.85); font-family: var(--mono); font-size: 10px; color: var(--muted); border-top: 1px solid var(--border); }
 
-    /* Mobile */
+    /* MOBILE */
     @media (max-width: 860px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .wrap { padding: 0 24px; }
-      .bento-bio { grid-column: span 12; }
-      .bento-snap { grid-column: span 12; }
-      .bento-status { grid-column: span 12; }
-      .featured-grid { grid-template-columns: 1fr; gap: 40px; }
-      .projects-bento { grid-template-columns: 1fr; }
-      .proj-wide { grid-column: span 1; }
-      .proj-mid  { grid-column: span 1; }
-      .tl-item { grid-template-columns: 1fr; gap: 8px; }
-      .tl-item::after { display: none; }
-      .tl-left { text-align: left; }
-      .tl-right { padding-left: 20px; }
+      html, body { overflow-x: hidden; }
+      nav { padding: 0 20px; height: 64px; }
+      .nav-links, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .nav-logo { width: 42px; height: 42px; font-size: 13px; border-radius: 10px; }
+
+      #hero { min-height: 100svh; padding: 64px 20px 120px; margin-top: -64px; }
+      .hero-name { font-size: clamp(24px, 8vw, 52px); }
+      .hero-scroll { bottom: 32px; font-size: 11px; }
+      .scroll-line { height: 36px; }
+
+      .wrap { padding: 0; }
+      .section { padding: 60px 20px; box-sizing: border-box; }
+
+      .bento { display: flex; flex-direction: column; gap: 14px; }
+      .bento-card { padding: 20px; }
+      .bento-label { font-size: 16px; }
+      .bio-text p { font-size: 15px; }
+      .skill-groups { gap: 18px; }
+      .chip { font-size: 12px; padding: 5px 12px; }
+
+      .featured-grid { display: flex; flex-direction: column; gap: 28px; }
+      .section-pill { font-size: 20px; margin-bottom: 24px; }
+      .feat-title { font-size: 18px; }
+      .feat-desc { font-size: 15px; }
+
+      .projects-bento { display: flex; flex-direction: column; gap: 14px; }
+      .proj-card { padding: 20px; }
+      .proj-name { font-size: 17px; }
+      .proj-desc { font-size: 14px; }
+
+      .contact-h { font-size: clamp(20px, 7vw, 32px); }
+      .contact-sub { font-size: 14px; }
+      .contact-email { font-size: 14px; word-break: break-all; }
+      .social-btn { font-size: 12px; padding: 10px 16px; }
+
       .detail-panel { width: 100vw; }
-      footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
     }
   </style>
 </head>
@@ -467,21 +301,34 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <!-- Email -->
-    <a href="mailto:lux.monisa@gmail.com" class="nav-icon" title="Email">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <a href="/cdn-cgi/l/email-protection#6c00191442010302051f0d2c0b010d0500420f0301" class="nav-icon" title="Email">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
     </a>
-    <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/monisa-letchumanan" class="nav-icon" target="_blank" rel="noopener" title="LinkedIn">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
-    <!-- GitHub -->
     <a href="https://github.com/monisalux" class="nav-icon" target="_blank" rel="noopener" title="GitHub">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
     </a>
     <a href="resume.pdf" class="nav-cta" target="_blank">↓ Resume</a>
   </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#featured" onclick="toggleMenu()">Featured</a>
+  <a href="#projects" onclick="toggleMenu()">Projects</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <div class="mob-icons">
+    <a href="/cdn-cgi/l/email-protection#b1ddc4c99fdcdedfd8c2d0f1d6dcd0d8dd9fd2dedc"><svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    <a href="https://www.linkedin.com/in/monisa-letchumanan" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <a href="https://github.com/monisalux" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+  </div>
+  <a href="resume.pdf" class="mob-cta" target="_blank" onclick="toggleMenu()">↓ Resume</a>
+</div>
 
 <div class="lava-blob lava-1"></div>
 <div class="lava-blob lava-2"></div>
@@ -489,7 +336,6 @@
 <div class="lava-blob lava-4"></div>
 <div class="lava-blob lava-5"></div>
 
-<!-- HERO -->
 <div id="hero">
   <div class="hero-inner">
     <h1 class="hero-name">
@@ -503,11 +349,9 @@
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="wrap section">
     <div class="bento reveal">
-
       <div class="bento-card bento-bio">
         <div class="bento-label">About me</div>
         <div class="bio-text">
@@ -516,42 +360,31 @@
           <p>Outside of work I enjoy building things from scratch, from <strong>AI-powered game agents</strong> to full-stack telecom apps. I'm always looking for ways to grow as an engineer.</p>
         </div>
       </div>
-
       <div class="bento-card bento-skills">
         <div class="bento-label">Skills & tools</div>
         <div class="skill-groups">
           <div class="skill-group">
             <div class="skill-group-label">Languages</div>
-            <div class="chips">
-              <span class="chip">SQL</span><span class="chip">Java</span><span class="chip">C</span><span class="chip">Python</span><span class="chip">C#</span><span class="chip">HTML</span><span class="chip">MATLAB</span>
-            </div>
+            <div class="chips"><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">C</span><span class="chip">Python</span><span class="chip">C#</span><span class="chip">HTML</span><span class="chip">MATLAB</span></div>
           </div>
           <div class="skill-group">
             <div class="skill-group-label">Frameworks & Platforms</div>
-            <div class="chips">
-              <span class="chip">JavaFX</span><span class="chip">Unity</span><span class="chip">ML-Agents</span><span class="chip">Salesforce</span><span class="chip">Scene Builder</span>
-            </div>
+            <div class="chips"><span class="chip">JavaFX</span><span class="chip">Unity</span><span class="chip">ML-Agents</span><span class="chip">Salesforce</span><span class="chip">Scene Builder</span></div>
           </div>
           <div class="skill-group">
             <div class="skill-group-label">QA & Dev Tools</div>
-            <div class="chips">
-              <span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Azure DevOps</span><span class="chip">Multisim</span><span class="chip">Quartus II</span><span class="chip">Netbeans</span><span class="chip">Linux</span>
-            </div>
+            <div class="chips"><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Azure DevOps</span><span class="chip">Multisim</span><span class="chip">Quartus II</span><span class="chip">Netbeans</span><span class="chip">Linux</span></div>
           </div>
           <div class="skill-group">
             <div class="skill-group-label">Productivity</div>
-            <div class="chips">
-              <span class="chip">MS Office</span><span class="chip">Google Workspace</span><span class="chip">SharePoint</span><span class="chip">Slack</span>
-            </div>
+            <div class="chips"><span class="chip">MS Office</span><span class="chip">Google Workspace</span><span class="chip">SharePoint</span><span class="chip">Slack</span></div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- FEATURED PROJECT -->
 <section id="featured">
   <div class="wrap section">
     <div class="reveal"><div class="section-pill">Featured project</div></div>
@@ -562,28 +395,18 @@
           Final-year capstone, a Unity-based 3D game environment where NPCs are trained with <strong>reinforcement learning</strong> instead of traditional scripted logic. Agents navigate, engage in combat, and react to the player through learned behavior rather than hardcoded rules.
         </p>
         <div class="feat-stack">
-          <span class="feat-tag">Unity</span>
-          <span class="feat-tag">C#</span>
-          <span class="feat-tag">ML-Agents</span>
-          <span class="feat-tag">Reinforcement Learning</span>
-          <span class="feat-tag">Python</span>
+          <span class="feat-tag">Unity</span><span class="feat-tag">C#</span><span class="feat-tag">ML-Agents</span><span class="feat-tag">Reinforcement Learning</span><span class="feat-tag">Python</span>
         </div>
         <div class="btn-row">
           <a href="https://github.com/monisalux/NG01Capstone" class="btn btn-pink" target="_blank" rel="noopener">⌥ Source Code</a>
         </div>
       </div>
       <div class="reveal">
-        <a href="https://youtu.be/ADx1dFbM4iY" target="_blank" rel="noopener"
-           style="display:block;position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid var(--border);text-decoration:none;background:var(--bg3);"
-           class="feat-preview">
-          <img src="https://img.youtube.com/vi/ADx1dFbM4iY/maxresdefault.jpg"
-               alt="NPC AI Demo"
-               style="width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .3s;">
+        <a href="https://youtu.be/ADx1dFbM4iY" target="_blank" rel="noopener" class="feat-preview" style="display:block;position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:1px solid var(--border);text-decoration:none;background:var(--bg3);">
+          <img src="https://img.youtube.com/vi/ADx1dFbM4iY/maxresdefault.jpg" alt="NPC AI Demo" style="width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .3s;">
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
-            <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,45,155,.2);border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;transition:transform .2s;">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                <polygon points="7,4 18,11 7,18" fill="var(--pink)"/>
-              </svg>
+            <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,45,155,.2);border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><polygon points="7,4 18,11 7,18" fill="var(--pink)"/></svg>
             </div>
             <span style="font-family:var(--mono);font-size:12px;color:#fff;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.8);">Watch Demo ↗</span>
           </div>
@@ -594,72 +417,49 @@
   </div>
 </section>
 
-<!-- ALL PROJECTS -->
 <section id="projects">
   <div class="wrap section">
     <div class="reveal"><div class="section-pill">Projects</div></div>
     <div class="projects-bento">
-
-      <!-- wide (3) -->
-      <div class="proj-card proj-wide pink-top reveal" onclick="window.open('https://monisalux.github.io/','_blank')" style="cursor:pointer;">
+      <div class="proj-card proj-wide pink-top reveal" onclick="window.open('https://westudy.ca','_blank')">
         <div class="proj-card-top"></div>
-        <div class="proj-header">
-          <span class="proj-type type-pink">Web App · Live</span>
-          <span class="proj-arrow">↗</span>
-        </div>
+        <div class="proj-header"><span class="proj-type type-pink">Web App · Live</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">WeStudy Tutoring Platform</div>
         <p class="proj-desc">Co-owner of a tutoring platform built from 8 years of personal experience. Running a team of 10 tutors, connecting students to the right support.</p>
         <div class="proj-chips" style="margin-bottom:14px;"><span class="proj-chip">HTML</span><span class="proj-chip">CSS</span><span class="proj-chip">JavaScript</span><span class="proj-chip">GitHub Pages</span></div>
-        <a href="https://monisalux.github.io/" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-family:var(--mono);font-size:13px;padding:4px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:4px;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;width:fit-content;margin-top:4px;">↗ Live Site</a>
+        <a href="https://westudy.ca" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-family:var(--mono);font-size:13px;padding:4px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:4px;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;width:fit-content;margin-top:4px;">↗ Live Site</a>
       </div>
-
-      <!-- mid (2) -->
-      <div class="proj-card proj-mid purple-top reveal" onclick="window.open('https://github.com/monisalux/NG01Capstone','_blank')" style="cursor:pointer;">
+      <div class="proj-card proj-mid purple-top reveal" onclick="window.open('https://github.com/monisalux/NG01Capstone','_blank')">
         <div class="proj-card-top"></div>
-        <div class="proj-header">
-          <span class="proj-type type-purple">AI / Game Dev · Capstone</span>
-          <span class="proj-arrow">↗</span>
-        </div>
+        <div class="proj-header"><span class="proj-type type-purple">AI / Game Dev · Capstone</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">AI-Powered NPC Behavior</div>
         <p class="proj-desc">Unity 3D capstone uses adaptive NPCs trained using reinforcement learning with custom reward functions for navigation, combat, and player interaction.</p>
         <div class="proj-chips"><span class="proj-chip">Unity</span><span class="proj-chip">C#</span><span class="proj-chip">ML-Agents</span><span class="proj-chip">Reinforcement Learning</span></div>
       </div>
-
-      <!-- mid (2) -->
-      <div class="proj-card proj-mid pink-top reveal" onclick="window.open('https://github.com/monisalux/campusconnect','_blank')" style="cursor:pointer;">
+      <div class="proj-card proj-mid pink-top reveal" onclick="window.open('https://github.com/monisalux/campusconnect','_blank')">
         <div class="proj-card-top"></div>
-        <div class="proj-header">
-          <span class="proj-type type-pink">Web App</span>
-          <span class="proj-arrow">↗</span>
-        </div>
+        <div class="proj-header"><span class="proj-type type-pink">Web App</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">Campus Connect</div>
         <p class="proj-desc">A campus social platform events, announcements, and collaboration tools to streamline campus interactions.</p>
         <div class="proj-chips"><span class="proj-chip">Java</span><span class="proj-chip">JavaFX</span><span class="proj-chip">SQL</span><span class="proj-chip">Scene Builder</span></div>
       </div>
-
-      <!-- wide (3) -->
-      <div class="proj-card proj-wide purple-top reveal" onclick="window.open('https://github.com/monisalux/Moflix','_blank')" style="cursor:pointer;">
+      <div class="proj-card proj-wide purple-top reveal" onclick="window.open('https://github.com/monisalux/Moflix','_blank')">
         <div class="proj-card-top"></div>
-        <div class="proj-header">
-          <span class="proj-type type-purple">Full-Stack App</span>
-          <span class="proj-arrow">↗</span>
-        </div>
+        <div class="proj-header"><span class="proj-type type-purple">Full-Stack App</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">Moflix Telecom App</div>
         <p class="proj-desc">Led a team of 4 to design and ship a telecom application with real-time SQL data handling and a scalable 100+ component API.</p>
         <div class="proj-chips"><span class="proj-chip">Java</span><span class="proj-chip">JavaFX</span><span class="proj-chip">SQL</span><span class="proj-chip">Scene Builder</span></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="wrap section">
     <span class="contact-sparkle reveal">✦</span>
     <h2 class="contact-h reveal">Say <span class="grad">hello.</span></h2>
     <p class="contact-sub reveal">I'm always happy to connect about opportunities, projects, or anything else. My inbox is open.</p>
-    <a href="mailto:lux.monisa@gmail.com" class="contact-email reveal"><span class="__cf_email__" data-cfemail="214d54590f4c4e4f48524061464c40484d0f424e4c">lux.monisa@gmail.com</span></a>
+    <a href="mailto:lux.monisa@gmail.com" class="contact-email reveal"><span class="__cf_email__" data-cfemail="b5d9c0cd9bd8dadbdcc6d4f5d2d8d4dcd99bd6dad8">lux.monisa@gmail.com</span></a>
     <div class="contact-links reveal">
       <a href="https://www.linkedin.com/in/monisa-letchumanan" class="social-btn" target="_blank" rel="noopener">↗ LinkedIn</a>
       <a href="resume.pdf" class="social-btn" target="_blank" rel="noopener">↓ Resume</a>
@@ -667,9 +467,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-
-<!-- PANEL -->
 <div class="panel-overlay" id="overlay" onclick="closePanel()"></div>
 <div class="detail-panel" id="detail-panel">
   <div class="panel-head">
@@ -683,111 +480,65 @@
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function toggleVideo() {
-    const v = document.getElementById('npc-video');
-    const overlay = document.querySelector('.feat-video-overlay');
-    const btn = document.getElementById('play-btn');
-    if (v.paused) {
-      v.play();
-      overlay.style.opacity = '0';
-      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22"><rect x="5" y="4" width="4" height="14" fill="#fff"/><rect x="13" y="4" width="4" height="14" fill="#fff"/></svg>';
-    } else {
-      v.pause();
-      overlay.style.opacity = '1';
-      btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 22 22"><polygon points="7,4 18,11 7,18" fill="#fff"/></svg>';
-    }
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const burger = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    burger.classList.toggle('open');
+    document.body.classList.toggle('panel-open', menu.classList.contains('open'));
+  }
+
+  function closePanel() {
+    document.getElementById('detail-panel').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+    document.body.classList.remove('panel-open');
   }
 
   const nav = document.getElementById('nav');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
 
-  document.getElementById('yr').textContent = `✦ ${new Date().getFullYear()}`;
-
   const projects = {
-    'featured-proj': {
-      type: 'AI / Game Dev · Capstone',
-      name: 'AI-Powered NPC Behavior Modeling',
-      desc: 'Final-year capstone project, a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>, replacing traditional scripted behaviors with dynamic, context-aware decision-making. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction.',
-      stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning', 'Python'],
-      demo: 'https://youtu.be/ADx1dFbM4iY', source: 'https://github.com/monisalux/NG01Capstone',
-      screenshots: []
-    },
     'proj-1': {
       type: 'Web App · Live',
       name: 'WeStudy Tutoring Platform',
-      desc: 'Born from 8 years of personal tutoring experience with students of all ages, WeStudy is a tutoring platform I co-own alongside a <strong>team of 10</strong>. The site connects students with qualified tutors, featuring tutor profiles, subject listings, and a seamless booking experience, built to make quality academic support accessible to everyone.',
+      desc: 'Born from 8 years of personal tutoring experience with students of all ages, WeStudy is a tutoring platform I co-own alongside a <strong>team of 10</strong>. The site connects students with qualified tutors, featuring tutor profiles, subject listings, and a seamless booking experience — built to make quality academic support accessible to everyone.',
       stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
-      demo: 'https://monisalux.github.io/', source: 'https://github.com/monisalux',
-      screenshots: []
+      demo: 'https://westudy.ca', source: 'https://github.com/monisalux'
     },
     'proj-2': {
       type: 'AI / Game Dev · Capstone',
       name: 'AI-Powered NPC Behavior Modeling',
-      desc: 'Final-year capstone project, a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>, replacing traditional scripted behaviors with dynamic, context-aware decision-making. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction. Refined agent behavior through iterative training cycles by tuning reward parameters and policies.',
+      desc: 'Final-year capstone project — a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction.',
       stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning', 'Python'],
-      demo: 'https://youtu.be/ADx1dFbM4iY', source: 'https://github.com/monisalux/NG01Capstone',
-      screenshots: []
+      demo: 'https://youtu.be/ADx1dFbM4iY', source: 'https://github.com/monisalux/NG01Capstone'
     },
     'proj-4': {
       type: 'Web App',
       name: 'Campus Connect',
-      desc: 'A campus social platform connecting students across university life. Features events, announcements, and collaboration tools built to streamline campus interactions. Designed with role-based access for students, faculty, and admins, with a focus on usability and real-time data.',
+      desc: 'A campus social platform connecting students across university life. Features events, announcements, and collaboration tools built to streamline campus interactions.',
       stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
-      demo: null, source: 'https://github.com/monisalux/campusconnect',
-      screenshots: [
-        { src: null, caption: 'Dashboard view' },
-        { src: null, caption: 'Events & announcements' },
-      ]
+      demo: null, source: 'https://github.com/monisalux/campusconnect'
     },
     'proj-5': {
       type: 'Full-Stack App',
       name: 'Moflix Telecom Application',
-      desc: 'Led a team of 4 to design and build a telecom application using <strong>Java, JavaFX, Scene Builder, and SQL</strong>. Developed core Java classes for seamless SQL database connectivity and real-time data handling. Engineered a scalable API with 100+ components, including methods, queries, and views ensuring modularity and maintainability.',
+      desc: 'Led a team of 4 to design and build a telecom application using <strong>Java, JavaFX, Scene Builder, and SQL</strong>. Developed core Java classes for seamless SQL database connectivity and real-time data handling. Engineered a scalable API with 100+ components.',
       stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
-      demo: null, source: 'https://github.com/monisalux/Moflix',
-      screenshots: [
-        { src: null, caption: 'Application main screen' },
-        { src: null, caption: 'Database view' },
-      ]
-    },
+      demo: null, source: 'https://github.com/monisalux/Moflix'
+    }
   };
-
-  function buildSS(ss) {
-    const inner = ss.src
-      ? `<img src="${ss.src}" alt="${ss.caption}" loading="lazy">`
-      : `<div class="ss-placeholder"><div class="ss-placeholder-icon">◻</div><span class="ss-placeholder-text">add image src in project data</span></div>`;
-    return `<div class="ss-frame">${inner}<div class="ss-caption">${ss.caption}</div></div>`;
-  }
-
-  function buildVideo(src) {
-    return `<div class="ss-frame" style="aspect-ratio:16/9;">
-      <video style="width:100%;height:100%;object-fit:cover;border-radius:12px;" controls>
-        <source src="${src}" type="video/mp4">
-      </video>
-    </div>`;
-  }
 
   function openPanel(id) {
     const p = projects[id]; if (!p) return;
     document.getElementById('panel-type').textContent = p.type;
     document.getElementById('panel-name').textContent = p.name;
-    const mediaHTML = p.video ? buildVideo(p.video) : (p.screenshots||[]).map(buildSS).join('');
     const stack = p.stack.map(s => `<span class="panel-tag">${s}</span>`).join('');
     const demo  = p.demo   ? `<a href="${p.demo}"   class="pl pl-primary" target="_blank" rel="noopener">↗ Live Demo</a>` : '';
     const src   = p.source ? `<a href="${p.source}" class="pl pl-ghost"   target="_blank" rel="noopener">⌥ Source Code</a>` : '';
     document.getElementById('panel-body').innerHTML = `
-      ${mediaHTML ? `<div class="panel-section-label">${p.video ? 'Demo video' : 'Screenshots'}</div>
-      <div class="panel-screenshots">${mediaHTML}</div>
-      <div class="panel-divider"></div>` : ''}
       <div class="panel-section-label">About</div>
       <p class="panel-desc">${p.desc}</p>
       <div class="panel-divider"></div>
       <div class="panel-section-label">Stack</div>
       <div class="panel-stack" style="margin-bottom:0">${stack}</div>
-      ${(demo||src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div class="panel-links">${demo}${src}</div>` : ''}
-    `;
-    document.getElementById('detail-panel').classList.add('open');
-    document.getElementById('overlay').classList.add('open');
-    document.body.classList.add('panel-open');
-    document.getElementById('panel-body').scrollTop = 0;
-  }
+      ${(demo||src) ? `<div class="panel-divider"></div><div class="panel-section-label">Li
