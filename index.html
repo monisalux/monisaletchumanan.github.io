@@ -261,7 +261,7 @@
 
       #hero { min-height: 100svh; padding: 110px 20px 120px; margin-top: 0; }
       .hero-name { font-size: clamp(24px, 8vw, 52px); }
-      .hero-scroll { bottom: 32px; font-size: 11px; }
+      .hero-scroll { bottom: 72px; font-size: 11px; }
       .scroll-line { height: 36px; }
 
       .wrap { padding: 0; }
@@ -315,23 +315,23 @@
     </a>
     <a href="resume.pdf" class="nav-cta" target="_blank">↓ Resume</a>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <button class="menu-close" type="button" aria-label="Close menu" onclick="closeMenu()">&times;</button>
-  <a href="#about" id="mob-about" onclick="toggleMenu()">About</a>
-  <a href="#featured" id="mob-featured" onclick="toggleMenu()">Featured</a>
-  <a href="#projects" id="mob-projects" onclick="toggleMenu()">Projects</a>
-  <a href="#contact" id="mob-contact" onclick="toggleMenu()">Contact</a>
+  <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
+  <a href="#about">About</a>
+  <a href="#featured">Featured</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
   <div class="mob-icons">
     <a href="mailto:lux.monisa@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
     <a href="https://www.linkedin.com/in/monisa-letchumanan" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
     <a href="https://github.com/monisalux" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
   </div>
-  <a href="resume.pdf" class="mob-cta" target="_blank" id="mob-resume" onclick="toggleMenu()">↓ Resume</a>
+  <a href="resume.pdf" class="mob-cta" target="_blank" id="mob-resume">↓ Resume</a>
 </div>
 
 <div class="lava-blob lava-1"></div>
@@ -425,7 +425,7 @@
   <div class="wrap section">
     <div class="reveal"><div class="section-pill">Projects</div></div>
     <div class="projects-bento">
-      <div class="proj-card proj-wide pink-top reveal" onclick="window.open('https://westudy.ca','_blank')">
+      <div id="proj-1" class="proj-card proj-wide pink-top reveal">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-pink">Web App · Live</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">WeStudy Tutoring Platform</div>
@@ -433,21 +433,21 @@
         <div class="proj-chips" style="margin-bottom:14px;"><span class="proj-chip">HTML</span><span class="proj-chip">CSS</span><span class="proj-chip">JavaScript</span><span class="proj-chip">GitHub Pages</span></div>
         <a href="https://westudy.ca" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-family:var(--mono);font-size:13px;padding:4px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:4px;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;width:fit-content;margin-top:4px;">↗ Live Site</a>
       </div>
-      <div class="proj-card proj-mid purple-top reveal" onclick="window.open('https://github.com/monisalux/NG01Capstone','_blank')">
+      <div id="proj-2" class="proj-card proj-mid purple-top reveal">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-purple">AI / Game Dev · Capstone</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">AI-Powered NPC Behavior</div>
         <p class="proj-desc">Unity 3D capstone uses adaptive NPCs trained using reinforcement learning with custom reward functions for navigation, combat, and player interaction.</p>
         <div class="proj-chips"><span class="proj-chip">Unity</span><span class="proj-chip">C#</span><span class="proj-chip">ML-Agents</span><span class="proj-chip">Reinforcement Learning</span></div>
       </div>
-      <div class="proj-card proj-mid pink-top reveal" onclick="window.open('https://github.com/monisalux/campusconnect','_blank')">
+      <div id="proj-4" class="proj-card proj-mid pink-top reveal">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-pink">Web App</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">Campus Connect</div>
         <p class="proj-desc">A campus social platform events, announcements, and collaboration tools to streamline campus interactions.</p>
         <div class="proj-chips"><span class="proj-chip">Java</span><span class="proj-chip">JavaFX</span><span class="proj-chip">SQL</span><span class="proj-chip">Scene Builder</span></div>
       </div>
-      <div class="proj-card proj-wide purple-top reveal" onclick="window.open('https://github.com/monisalux/Moflix','_blank')">
+      <div id="proj-5" class="proj-card proj-wide purple-top reveal">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-purple">Full-Stack App</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">Moflix Telecom App</div>
@@ -471,127 +471,145 @@
   </div>
 </section>
 
-<div class="panel-overlay" id="overlay" onclick="closePanel()"></div>
+<div class="panel-overlay" id="overlay"></div>
 <div class="detail-panel" id="detail-panel">
   <div class="panel-head">
     <div>
       <div class="panel-type-badge" id="panel-type"></div>
       <div class="panel-name" id="panel-name"></div>
     </div>
-    <button class="panel-close" onclick="closePanel()">✕</button>
+    <button class="panel-close" id="panel-close">✕</button>
   </div>
   <div class="panel-body" id="panel-body"></div>
 </div>
 
 <script>
-  function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const burger = document.getElementById('hamburger');
-    if (!menu || !burger) return;
+  document.addEventListener('DOMContentLoaded', function () {
 
-    const willOpen = !menu.classList.contains('open');
-    menu.classList.toggle('open', willOpen);
-    burger.classList.toggle('open', willOpen);
-    document.body.style.overflow = willOpen ? 'hidden' : '';
-  }
-
-  function closeMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const burger = document.getElementById('hamburger');
-    if (!menu || !burger) return;
-    menu.classList.remove('open');
-    burger.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closePanel() {
-    const panel = document.getElementById('detail-panel');
+    /* ── Elements ── */
+    const menu    = document.getElementById('mobile-menu');
+    const burger  = document.getElementById('hamburger');
+    const nav     = document.getElementById('nav');
     const overlay = document.getElementById('overlay');
-    if (panel) panel.classList.remove('open');
-    if (overlay) overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+    const panel   = document.getElementById('detail-panel');
 
-  const nav = document.getElementById('nav');
-  if (nav) {
-    window.addEventListener('scroll', function () {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
+    /* ── Scroll lock (uses CSS class — safe with overflow-x: hidden) ── */
+    const lockScroll   = () => document.body.classList.add('panel-open');
+    const unlockScroll = () => document.body.classList.remove('panel-open');
+
+    /* ── Mobile menu ── */
+    const openMenu = () => {
+      menu.classList.add('open');
+      burger.classList.add('open');
+      lockScroll();
+    };
+
+    const closeMenu = () => {
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      unlockScroll();
+    };
+
+    burger.addEventListener('click', () =>
+      menu.classList.contains('open') ? closeMenu() : openMenu()
+    );
+
+    // Close button inside mobile menu
+    menu.querySelector('.menu-close').addEventListener('click', closeMenu);
+
+    // All links inside mobile menu close it (covers anchor links AND resume PDF)
+    menu.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', closeMenu)
+    );
+
+    /* ── Nav scroll ── */
+    window.addEventListener('scroll', () =>
+      nav.classList.toggle('scrolled', window.scrollY > 60)
+    , { passive: true });
+
+    /* ── Detail panel ── */
+    const closePanel = () => {
+      panel.classList.remove('open');
+      overlay.classList.remove('open');
+      unlockScroll();
+    };
+
+    overlay.addEventListener('click', closePanel);
+    document.getElementById('panel-close').addEventListener('click', closePanel);
+
+    /* ── Project data ── */
+    const projects = {
+      'proj-1': {
+        type: 'Web App · Live',
+        name: 'WeStudy Tutoring Platform',
+        desc: 'Born from 8 years of personal tutoring experience with students of all ages, WeStudy is a tutoring platform I co-own alongside a <strong>team of 10</strong>. The site connects students with qualified tutors, featuring tutor profiles, subject listings, and a seamless booking experience — built to make quality academic support accessible to everyone.',
+        stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+        demo: 'https://westudy.ca',
+        source: 'https://github.com/monisalux'
+      },
+      'proj-2': {
+        type: 'AI / Game Dev · Capstone',
+        name: 'AI-Powered NPC Behavior Modeling',
+        desc: 'Final-year capstone project — a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction.',
+        stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning', 'Python'],
+        demo: 'https://youtu.be/ADx1dFbM4iY',
+        source: 'https://github.com/monisalux/NG01Capstone'
+      },
+      'proj-4': {
+        type: 'Web App',
+        name: 'Campus Connect',
+        desc: 'A campus social platform connecting students across university life. Features events, announcements, and collaboration tools built to streamline campus interactions.',
+        stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
+        demo: null,
+        source: 'https://github.com/monisalux/campusconnect'
+      },
+      'proj-5': {
+        type: 'Full-Stack App',
+        name: 'Moflix Telecom Application',
+        desc: 'Led a team of 4 to design and build a telecom application using <strong>Java, JavaFX, Scene Builder, and SQL</strong>. Developed core Java classes for seamless SQL database connectivity and real-time data handling. Engineered a scalable API with 100+ components.',
+        stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
+        demo: null,
+        source: 'https://github.com/monisalux/Moflix'
+      }
+    };
+
+    const openPanel = (id) => {
+      const p = projects[id];
+      if (!p) return;
+
+      document.getElementById('panel-type').textContent = p.type;
+      document.getElementById('panel-name').textContent = p.name;
+
+      const stack = p.stack.map(s => `<span class="panel-tag">${s}</span>`).join('');
+      const demo  = p.demo   ? `<a href="${p.demo}"   class="pl pl-primary" target="_blank" rel="noopener">↗ Live Demo</a>` : '';
+      const src   = p.source ? `<a href="${p.source}" class="pl pl-ghost"   target="_blank" rel="noopener">⌥ Source Code</a>` : '';
+
+      document.getElementById('panel-body').innerHTML = `
+        <div class="panel-section-label">About</div>
+        <p class="panel-desc">${p.desc}</p>
+        <div class="panel-divider"></div>
+        <div class="panel-section-label">Stack</div>
+        <div class="panel-stack" style="margin-bottom:0">${stack}</div>
+        ${(demo || src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div class="panel-links">${demo}${src}</div>` : ''}
+      `;
+
+      overlay.classList.add('open');
+      panel.classList.add('open');
+      lockScroll();
+    };
+
+    /* ── Project card clicks → open panel ── */
+    document.querySelectorAll('.proj-card').forEach(card =>
+      card.addEventListener('click', () => openPanel(card.id))
+    );
+
+    /* ── Keyboard: Escape closes whichever layer is open ── */
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (panel.classList.contains('open')) closePanel();
+      else if (menu.classList.contains('open')) closeMenu();
     });
-  }
 
-  const projects = {
-    'proj-1': {
-      type: 'Web App · Live',
-      name: 'WeStudy Tutoring Platform',
-      desc: 'Born from 8 years of personal tutoring experience with students of all ages, WeStudy is a tutoring platform I co-own alongside a <strong>team of 10</strong>. The site connects students with qualified tutors, featuring tutor profiles, subject listings, and a seamless booking experience — built to make quality academic support accessible to everyone.',
-      stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
-      demo: 'https://westudy.ca',
-      source: 'https://github.com/monisalux'
-    },
-    'proj-2': {
-      type: 'AI / Game Dev · Capstone',
-      name: 'AI-Powered NPC Behavior Modeling',
-      desc: 'Final-year capstone project — a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction.',
-      stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning', 'Python'],
-      demo: 'https://youtu.be/ADx1dFbM4iY',
-      source: 'https://github.com/monisalux/NG01Capstone'
-    },
-    'proj-4': {
-      type: 'Web App',
-      name: 'Campus Connect',
-      desc: 'A campus social platform connecting students across university life. Features events, announcements, and collaboration tools built to streamline campus interactions.',
-      stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
-      demo: null,
-      source: 'https://github.com/monisalux/campusconnect'
-    },
-    'proj-5': {
-      type: 'Full-Stack App',
-      name: 'Moflix Telecom Application',
-      desc: 'Led a team of 4 to design and build a telecom application using <strong>Java, JavaFX, Scene Builder, and SQL</strong>. Developed core Java classes for seamless SQL database connectivity and real-time data handling. Engineered a scalable API with 100+ components.',
-      stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
-      demo: null,
-      source: 'https://github.com/monisalux/Moflix'
-    }
-  };
-
-  function openPanel(id) {
-    const p = projects[id];
-    if (!p) return;
-
-    document.getElementById('panel-type').textContent = p.type;
-    document.getElementById('panel-name').textContent = p.name;
-
-    const stack = p.stack.map(s => `<span class="panel-tag">${s}</span>`).join('');
-    const demo = p.demo ? `<a href="${p.demo}" class="pl pl-primary" target="_blank" rel="noopener">↗ Live Demo</a>` : '';
-    const src = p.source ? `<a href="${p.source}" class="pl pl-ghost" target="_blank" rel="noopener">⌥ Source Code</a>` : '';
-
-    document.getElementById('panel-body').innerHTML = `
-      <div class="panel-section-label">About</div>
-      <p class="panel-desc">${p.desc}</p>
-      <div class="panel-divider"></div>
-      <div class="panel-section-label">Stack</div>
-      <div class="panel-stack" style="margin-bottom:0">${stack}</div>
-      ${(demo || src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div class="panel-links">${demo}${src}</div>` : ''}
-    `;
-
-    document.getElementById('overlay').classList.add('open');
-    document.getElementById('detail-panel').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  document.querySelectorAll('.proj-card').forEach(card => {
-    card.addEventListener('click', () => openPanel(card.id));
-  });
-
-  document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      closeMenu();
-      closePanel();
-    }
   });
 </script>
 </body>
