@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta name="cf-2fa-verify" content="off"/>
+  <meta http-equiv="x-cloudflare-email-obfuscation" content="off"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Monisa Letchumanan — Computer Software Engineering student at TMU. QA Specialist, developer, and co-owner of WeStudy tutoring platform."/>
   <meta property="og:title" content="Monisa Letchumanan — Portfolio"/>
@@ -93,12 +94,14 @@
 
     /* MOBILE MENU */
     .mobile-menu {
-      position: fixed; inset: 0; z-index: 550;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999;
       background: rgba(6,0,16,.97); backdrop-filter: blur(20px);
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
       opacity: 0; pointer-events: none; transition: opacity .3s;
     }
     .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .menu-close { position: absolute; top: 18px; right: 20px; width: 48px; height: 48px; border: 1px solid var(--border); border-radius: 50%; background: rgba(255,255,255,.04); color: var(--text); font-size: 30px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .menu-close:hover { background: rgba(255,255,255,.08); }
     .mobile-menu a { font-family: var(--display); font-size: 26px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: .04em; transition: color .2s; }
     .mobile-menu a:hover { color: var(--pink); }
     .mob-icons { display: flex; gap: 14px; margin-top: 8px; }
@@ -251,12 +254,12 @@
     /* MOBILE */
     @media (max-width: 860px) {
       html, body { overflow-x: hidden; }
-      nav { padding: 0 20px; height: 64px; }
+      nav { padding: 0 20px; height: 64px; z-index: 10000; isolation: isolate; }
       .nav-links, .nav-right { display: none; }
-      .hamburger { display: flex; }
+      .hamburger { display: flex; position: relative; z-index: 10001; pointer-events: auto; }
       .nav-logo { width: 42px; height: 42px; font-size: 13px; border-radius: 10px; }
 
-      #hero { min-height: 100svh; padding: 64px 20px 120px; margin-top: -64px; }
+      #hero { min-height: 100svh; padding: 110px 20px 120px; margin-top: 0; }
       .hero-name { font-size: clamp(24px, 8vw, 52px); }
       .hero-scroll { bottom: 32px; font-size: 11px; }
       .scroll-line { height: 36px; }
@@ -301,7 +304,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="/cdn-cgi/l/email-protection#6c00191442010302051f0d2c0b010d0500420f0301" class="nav-icon" title="Email">
+    <a href="mailto:lux.monisa@gmail.com" class="nav-icon" title="Email">
       <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
     </a>
     <a href="https://www.linkedin.com/in/monisa-letchumanan" class="nav-icon" target="_blank" rel="noopener" title="LinkedIn">
@@ -318,16 +321,17 @@
 </nav>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#featured" onclick="toggleMenu()">Featured</a>
-  <a href="#projects" onclick="toggleMenu()">Projects</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <button class="menu-close" type="button" aria-label="Close menu" onclick="closeMenu()">&times;</button>
+  <a href="#about" id="mob-about" onclick="toggleMenu()">About</a>
+  <a href="#featured" id="mob-featured" onclick="toggleMenu()">Featured</a>
+  <a href="#projects" id="mob-projects" onclick="toggleMenu()">Projects</a>
+  <a href="#contact" id="mob-contact" onclick="toggleMenu()">Contact</a>
   <div class="mob-icons">
-    <a href="/cdn-cgi/l/email-protection#b1ddc4c99fdcdedfd8c2d0f1d6dcd0d8dd9fd2dedc"><svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    <a href="mailto:lux.monisa@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
     <a href="https://www.linkedin.com/in/monisa-letchumanan" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
     <a href="https://github.com/monisalux" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
   </div>
-  <a href="resume.pdf" class="mob-cta" target="_blank" onclick="toggleMenu()">↓ Resume</a>
+  <a href="resume.pdf" class="mob-cta" target="_blank" id="mob-resume" onclick="toggleMenu()">↓ Resume</a>
 </div>
 
 <div class="lava-blob lava-1"></div>
@@ -479,23 +483,41 @@
   <div class="panel-body" id="panel-body"></div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function toggleMenu() {
     const menu = document.getElementById('mobile-menu');
     const burger = document.getElementById('hamburger');
-    menu.classList.toggle('open');
-    burger.classList.toggle('open');
-    document.body.classList.toggle('panel-open', menu.classList.contains('open'));
+    if (!menu || !burger) return;
+
+    const willOpen = !menu.classList.contains('open');
+    menu.classList.toggle('open', willOpen);
+    burger.classList.toggle('open', willOpen);
+    document.body.style.overflow = willOpen ? 'hidden' : '';
+  }
+
+  function closeMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const burger = document.getElementById('hamburger');
+    if (!menu || !burger) return;
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   function closePanel() {
-    document.getElementById('detail-panel').classList.remove('open');
-    document.getElementById('overlay').classList.remove('open');
-    document.body.classList.remove('panel-open');
+    const panel = document.getElementById('detail-panel');
+    const overlay = document.getElementById('overlay');
+    if (panel) panel.classList.remove('open');
+    if (overlay) overlay.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   const nav = document.getElementById('nav');
-  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+  if (nav) {
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  }
 
   const projects = {
     'proj-1': {
@@ -503,42 +525,74 @@
       name: 'WeStudy Tutoring Platform',
       desc: 'Born from 8 years of personal tutoring experience with students of all ages, WeStudy is a tutoring platform I co-own alongside a <strong>team of 10</strong>. The site connects students with qualified tutors, featuring tutor profiles, subject listings, and a seamless booking experience — built to make quality academic support accessible to everyone.',
       stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
-      demo: 'https://westudy.ca', source: 'https://github.com/monisalux'
+      demo: 'https://westudy.ca',
+      source: 'https://github.com/monisalux'
     },
     'proj-2': {
       type: 'AI / Game Dev · Capstone',
       name: 'AI-Powered NPC Behavior Modeling',
       desc: 'Final-year capstone project — a Unity-based 3D game environment featuring adaptive NPCs trained using <strong>reinforcement learning</strong>. Implemented intelligent agents using Unity ML-Agents with custom observation spaces, action spaces, and reward functions to support navigation, combat engagement, survival tactics, and responsive player interaction.',
       stack: ['Unity', 'C#', 'ML-Agents', 'Reinforcement Learning', 'Python'],
-      demo: 'https://youtu.be/ADx1dFbM4iY', source: 'https://github.com/monisalux/NG01Capstone'
+      demo: 'https://youtu.be/ADx1dFbM4iY',
+      source: 'https://github.com/monisalux/NG01Capstone'
     },
     'proj-4': {
       type: 'Web App',
       name: 'Campus Connect',
       desc: 'A campus social platform connecting students across university life. Features events, announcements, and collaboration tools built to streamline campus interactions.',
       stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
-      demo: null, source: 'https://github.com/monisalux/campusconnect'
+      demo: null,
+      source: 'https://github.com/monisalux/campusconnect'
     },
     'proj-5': {
       type: 'Full-Stack App',
       name: 'Moflix Telecom Application',
       desc: 'Led a team of 4 to design and build a telecom application using <strong>Java, JavaFX, Scene Builder, and SQL</strong>. Developed core Java classes for seamless SQL database connectivity and real-time data handling. Engineered a scalable API with 100+ components.',
       stack: ['Java', 'JavaFX', 'SQL', 'Scene Builder', 'NetBeans'],
-      demo: null, source: 'https://github.com/monisalux/Moflix'
+      demo: null,
+      source: 'https://github.com/monisalux/Moflix'
     }
   };
 
   function openPanel(id) {
-    const p = projects[id]; if (!p) return;
+    const p = projects[id];
+    if (!p) return;
+
     document.getElementById('panel-type').textContent = p.type;
     document.getElementById('panel-name').textContent = p.name;
+
     const stack = p.stack.map(s => `<span class="panel-tag">${s}</span>`).join('');
-    const demo  = p.demo   ? `<a href="${p.demo}"   class="pl pl-primary" target="_blank" rel="noopener">↗ Live Demo</a>` : '';
-    const src   = p.source ? `<a href="${p.source}" class="pl pl-ghost"   target="_blank" rel="noopener">⌥ Source Code</a>` : '';
+    const demo = p.demo ? `<a href="${p.demo}" class="pl pl-primary" target="_blank" rel="noopener">↗ Live Demo</a>` : '';
+    const src = p.source ? `<a href="${p.source}" class="pl pl-ghost" target="_blank" rel="noopener">⌥ Source Code</a>` : '';
+
     document.getElementById('panel-body').innerHTML = `
       <div class="panel-section-label">About</div>
       <p class="panel-desc">${p.desc}</p>
       <div class="panel-divider"></div>
       <div class="panel-section-label">Stack</div>
       <div class="panel-stack" style="margin-bottom:0">${stack}</div>
-      ${(demo||src) ? `<div class="panel-divider"></div><div class="panel-section-label">Li
+      ${(demo || src) ? `<div class="panel-divider"></div><div class="panel-section-label">Links</div><div class="panel-links">${demo}${src}</div>` : ''}
+    `;
+
+    document.getElementById('overlay').classList.add('open');
+    document.getElementById('detail-panel').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.querySelectorAll('.proj-card').forEach(card => {
+    card.addEventListener('click', () => openPanel(card.id));
+  });
+
+  document.querySelectorAll('#mobile-menu a[href^="#"]').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeMenu();
+      closePanel();
+    }
+  });
+</script>
+</body>
+</html>
