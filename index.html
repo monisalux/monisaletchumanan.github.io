@@ -425,39 +425,62 @@
   <div class="wrap section">
     <div class="reveal"><div class="section-pill">Projects</div></div>
     <div class="projects-bento">
-      <div id="proj-1" class="proj-card proj-wide pink-top reveal">
+      <div id="proj-1" class="proj-card proj-wide pink-top reveal" data-github="https://github.com/monisalux/WeStudy.github.io">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-pink">Web App · Live</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">WeStudy Tutoring Platform</div>
         <p class="proj-desc">Co-owner of a tutoring platform built from 8 years of personal experience. Running a team of 10 tutors, connecting students to the right support.</p>
-        <div class="proj-chips" style="margin-bottom:14px;"><span class="proj-chip">HTML</span><span class="proj-chip">CSS</span><span class="proj-chip">JavaScript</span><span class="proj-chip">GitHub Pages</span></div>
+        <div class="proj-chips" style="margin-bottom:14px;">
+          <span class="proj-chip">HTML</span>
+          <span class="proj-chip">CSS</span>
+          <span class="proj-chip">JavaScript</span>
+          <span class="proj-chip">GitHub Pages</span>
+        </div>
         <a href="https://westudy.ca" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-family:var(--mono);font-size:13px;padding:4px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:4px;text-decoration:none;letter-spacing:.06em;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;width:fit-content;margin-top:4px;">↗ Live Site</a>
       </div>
-      <div id="proj-2" class="proj-card proj-mid purple-top reveal">
+
+      <div id="proj-2" class="proj-card proj-mid purple-top reveal" data-github="https://github.com/monisalux/NG01Capstone">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-purple">AI / Game Dev · Capstone</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">AI-Powered NPC Behavior</div>
         <p class="proj-desc">Unity 3D capstone uses adaptive NPCs trained using reinforcement learning with custom reward functions for navigation, combat, and player interaction.</p>
-        <div class="proj-chips"><span class="proj-chip">Unity</span><span class="proj-chip">C#</span><span class="proj-chip">ML-Agents</span><span class="proj-chip">Reinforcement Learning</span></div>
+        <div class="proj-chips">
+          <span class="proj-chip">Unity</span>
+          <span class="proj-chip">C#</span>
+          <span class="proj-chip">ML-Agents</span>
+          <span class="proj-chip">Reinforcement Learning</span>
+        </div>
       </div>
-      <div id="proj-4" class="proj-card proj-mid pink-top reveal">
+
+      <div id="proj-4" class="proj-card proj-mid pink-top reveal" data-github="https://github.com/monisalux/campusconnect">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-pink">Web App</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">Campus Connect</div>
-        <p class="proj-desc">A campus social platform events, announcements, and collaboration tools to streamline campus interactions.</p>
-        <div class="proj-chips"><span class="proj-chip">Java</span><span class="proj-chip">JavaFX</span><span class="proj-chip">SQL</span><span class="proj-chip">Scene Builder</span></div>
+        <p class="proj-desc">A campus social platform for events, announcements, and collaboration tools to streamline campus interactions.</p>
+        <div class="proj-chips">
+          <span class="proj-chip">Java</span>
+          <span class="proj-chip">JavaFX</span>
+          <span class="proj-chip">SQL</span>
+          <span class="proj-chip">Scene Builder</span>
+        </div>
       </div>
-      <div id="proj-5" class="proj-card proj-wide purple-top reveal">
+
+      <div id="proj-5" class="proj-card proj-wide purple-top reveal" data-github="https://github.com/monisalux/Moflix">
         <div class="proj-card-top"></div>
         <div class="proj-header"><span class="proj-type type-purple">Full-Stack App</span><span class="proj-arrow">↗</span></div>
         <div class="proj-name">Moflix Telecom App</div>
         <p class="proj-desc">Led a team of 4 to design and ship a telecom application with real-time SQL data handling and a scalable 100+ component API.</p>
-        <div class="proj-chips"><span class="proj-chip">Java</span><span class="proj-chip">JavaFX</span><span class="proj-chip">SQL</span><span class="proj-chip">Scene Builder</span></div>
+        <div class="proj-chips">
+          <span class="proj-chip">Java</span>
+          <span class="proj-chip">JavaFX</span>
+          <span class="proj-chip">SQL</span>
+          <span class="proj-chip">Scene Builder</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
+  
 <section id="contact">
   <div class="wrap section">
     <span class="contact-sparkle reveal">✦</span>
@@ -598,10 +621,17 @@
       lockScroll();
     };
 
-    /* ── Project card clicks → open panel ── */
-    document.querySelectorAll('.proj-card').forEach(card =>
-      card.addEventListener('click', () => openPanel(card.id))
-    );
+    /* ── Project card clicks → GitHub ── */
+    document.querySelectorAll('.proj-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return; // lets inner links like Live Site still work
+    
+        const githubLink = card.dataset.github;
+        if (githubLink) {
+          window.open(githubLink, '_blank', 'noopener');
+        }
+      });
+    });
 
     /* ── Keyboard: Escape closes whichever layer is open ── */
     document.addEventListener('keydown', (e) => {
